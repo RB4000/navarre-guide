@@ -2415,12 +2415,11 @@ function addContact(name, phone) {
   
   // Create vCard content
   const vCard = `BEGIN:VCARD
-VERSION:3.0
+VERSION:2.1
 FN:${name}
-N:;${name};;;
+N:${name}
 ORG:${name}
 TEL:${formattedPhone}
-CATEGORIES:Navarre Services
 END:VCARD`;
   
   // Create downloadable link
