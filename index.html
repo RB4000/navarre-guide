@@ -2417,6 +2417,7 @@ function addContact(name, phone) {
   const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
+N:${name};;;;
 TEL:${formattedPhone}
 CATEGORIES:Navarre Services
 END:VCARD`;
