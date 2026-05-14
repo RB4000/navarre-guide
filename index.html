@@ -190,6 +190,25 @@
     transform: scale(0.97);
   }
 
+  .nav-directory-btn {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .nav-directory-btn:hover {
+    background: var(--gold-soft);
+    transform: translateY(-1px);
+  }
+
   /* Sections */
   main {
     max-width: 640px;
@@ -301,6 +320,19 @@
     border: 1px solid var(--line);
   }
   .btn-web svg { width: 12px; height: 12px; }
+
+  .btn-contact {
+    background: var(--cream);
+    color: var(--navy);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .btn-contact:hover {
+    background: var(--sand);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+  .btn-contact svg { width: 12px; height: 12px; }
 
   .btn-icon-only {
     padding: 9px;
@@ -575,12 +607,17 @@
         <span class="legend-btn legend-web">↗</span>
         <span>Opens the provider’s website</span>
       </div>
+      <div class="legend-item">
+        <span class="legend-btn legend-contact">👤➕</span>
+        <span>Downloads contact file — adds to your phone contacts</span>
+      </div>
     </div>
   </div>
 </div>
 
 <nav class="quick-nav">
   <div class="quick-nav-scroll">
+    <button class="nav-directory-btn" onclick="openDirectory()">📋 Directory</button>
     <a href="#utilities">Utilities</a>
     <a href="#tv-internet">TV &amp; Internet</a>
     <a href="#schools">Schools</a>
@@ -601,7 +638,7 @@
       <span class="section-num">01</span>
       <h2>Utilities</h2>
     </div>
-    <p class="section-desc">Set these up first — ideally a week before move-in. Power and water can take 1–2 business days to activate.</p>
+    <p class="section-desc">Set these up first — ideally a week before move-in. Power and water can take 1–2 business days to activate. <strong>Tip:</strong> Use the "📇" button to save contacts directly to your phone.</p>
 
     <div class="subsection-title">Electricity</div>
     <div class="card">
@@ -611,26 +648,24 @@
           <div class="card-detail">Serves all of Santa Rosa County</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:18002255797"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8002255797"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.fpl.com" target="_blank" rel="noopener" aria-label="FPL website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Florida Power & Light', '8002255797')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
 
-<div class="pro-tip">
-  <div class="pro-tip-content">
-    <div class="pro-tip-title">Pro Tip — Online Setup</div>
-    <ul>
-      <li>Go to <a href="https://www.fpl.com" target="_blank" rel="noopener">fpl.com</a></li>
-      <li>Click Start/Stop/Move button on home page</li>
-      <li>Select FPL Northwest FL</li>
-      <li>Click New Customer</li>
-      <li>Enter your address and move-in date</li>
-      <li>Create account — confirmation comes by email</li>
-    </ul>
-  </div>
-  <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">Set the service start date to your <strong>closing date</strong> so power is on the day the home is yours.</p>
-</div>
+    <div class="pro-tip">
+      <div class="pro-tip-label">Pro tip from a recent buyer</div>
+      <strong>Skip the phone call — FPL is fully online.</strong>
+      <ul>
+        <li>Go to <a href="https://www.fpl.com" target="_blank" rel="noopener">fpl.com</a></li>
+        <li>Enter your new address &amp; move-in date</li>
+        <li>Create an account &amp; verify ID</li>
+        <li>Confirmation arrives by email within minutes</li>
+      </ul>
+      <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">Set the service start date to your <strong>closing date</strong> so power is on the day the home is yours.</p>
+    </div>
 
     <div class="subsection-title">Water — Holley Navarre (Most Navarre homes)</div>
     <div class="card">
@@ -640,8 +675,9 @@
           <div class="card-detail">Serves most Navarre homes incl. Holley by the Sea</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509392427"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509392427"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.hnws-fl.com/" target="_blank" rel="noopener" aria-label="Holley Navarre Water website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Holley Navarre Water System', '8509392427')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -669,8 +705,9 @@
           <div class="card-detail">South of the bridge only</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509818888"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509818888"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.santarosa.fl.gov/902/Navarre-Beach-Utilities" target="_blank" rel="noopener" aria-label="Navarre Beach Utilities website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Navarre Beach Utilities', '8509818888')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -679,8 +716,9 @@
           <div class="card-detail">Midway / east Navarre area</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509325188"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509325188"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://midwaywater.com/" target="_blank" rel="noopener" aria-label="Midway Water website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Midway Water System', '8509325188')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -689,8 +727,9 @@
           <div class="card-detail">City of Gulf Breeze residents</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://cityofgulfbreeze.us/" target="_blank" rel="noopener" aria-label="City of Gulf Breeze website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Gulf Breeze Utilities', '8509345110')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -703,8 +742,9 @@
           <div class="card-detail">Navarre &amp; east areas</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8507294700"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8507294700"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.okaloosagas.com/" target="_blank" rel="noopener" aria-label="Okaloosa Gas District website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Okaloosa Gas District', '8507294700')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -713,8 +753,9 @@
           <div class="card-detail">City of Gulf Breeze</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://gulfbreezenaturalgas.com/" target="_blank" rel="noopener" aria-label="Gulf Breeze Natural Gas website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Gulf Breeze Gas', '8509345110')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -726,7 +767,8 @@
           <div class="card-name">Republic Services</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:18007747425"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:18007747425"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Republic Services', '18007747425')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -734,7 +776,9 @@
           <div class="card-name">Waste Pro</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8503651900"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8503651900"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+        
+          <button onclick="addContact('Waste Pro', '8503651900')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -742,7 +786,9 @@
           <div class="card-name">Adams Sanitation</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8507103322"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8507103322"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+        
+          <button onclick="addContact('Adams Sanitation', '8507103322')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -751,7 +797,9 @@
           <div class="card-detail">City residents only</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509345110"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+        
+          <button onclick="addContact('Gulf Breeze Garbage', '8509345110')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -777,8 +825,9 @@
           <div class="card-detail">Cable broadband</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:18553144947"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:18553144947"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://mediacomcable.com" target="_blank" rel="noopener" aria-label="Mediacom website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Mediacom', '18553144947')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -787,8 +836,9 @@
           <div class="card-detail">Fiber &amp; satellite TV</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:18002882020"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:18002882020"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.att.com" target="_blank" rel="noopener" aria-label="AT&T website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('AT&T & DIRECTV', '18002882020')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -797,8 +847,9 @@
           <div class="card-detail">Cable broadband</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:18553137685"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:18553137685"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.cox.com" target="_blank" rel="noopener" aria-label="Cox website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Cox Communications', '18553137685')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -830,41 +881,59 @@
           <div class="card-name">West Navarre Primary</div>
           <div class="card-detail">Grades K–2</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366000" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366000"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('West Navarre Primary', '8509366000')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Holley Navarre Primary</div>
           <div class="card-detail">Grades K–2</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366130" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366130"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley Navarre Primary', '8509366130')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">West Navarre Intermediate</div>
           <div class="card-detail">Grades 3–5</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366060" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366060"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('West Navarre Intermediate', '8509366060')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Holley Navarre Intermediate</div>
           <div class="card-detail">Grades 3–5</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366020" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366020"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley Navarre Intermediate', '8509366020')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Holley Navarre Middle</div>
           <div class="card-detail">Grades 6–8</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366040" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366040"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley Navarre Middle', '8509366040')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Navarre High School</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509366080" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509366080"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Navarre High School', '8509366080')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
 
@@ -875,40 +944,58 @@
           <div class="card-name">Gulf Breeze Elementary</div>
           <div class="card-detail">Grades K–5</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509345185" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509345185"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze Elementary', '8509345185')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Oriole Beach Elementary</div>
           <div class="card-detail">Grades K–5</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509345160" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509345160"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Oriole Beach Elementary', '8509345160')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Woodlawn Beach Middle</div>
           <div class="card-detail">Grades 6–8</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509344010" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509344010"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Woodlawn Beach Middle', '8509344010')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze Middle</div>
           <div class="card-detail">Grades 6–8</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509344080" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509344080"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze Middle', '8509344080')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze High School</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509164100" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509164100"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze High School', '8509164100')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">East Bay K-8</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8507500134" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8507500134"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('East Bay K-8', '8507500134')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -927,20 +1014,29 @@
           <div class="card-name">Baptist Medical Park</div>
           <div class="card-detail">Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509394888" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509394888"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Baptist Medical Park - Navarre', '8509394888')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze Hospital</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509342000" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509342000"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze Hospital', '8509342000')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Sacred Heart Hospital</div>
           <div class="card-detail">Pensacola</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8504167000" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8504167000"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Sacred Heart Hospital', '8504167000')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
 
@@ -950,19 +1046,28 @@
         <div class="card-info">
           <div class="card-name">SRMG Navarre Walk-In</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509814015" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509814015"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('SRMG Navarre Walk-In', '8509814015')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Ascension Sacred Heart Walk-In</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8504162337" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8504162337"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Ascension Sacred Heart Walk-In', '8504162337')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">White-Wilson Immediate Care</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8503960424" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8503960424"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('White-Wilson Immediate Care', '8503960424')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -978,43 +1083,64 @@
         <div class="card-info">
           <div class="card-name">CVS Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509361445" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509361445"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('CVS Navarre', '8509361445')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">CVS Gulf Breeze</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509323581" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509323581"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('CVS Gulf Breeze', '8509323581')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Publix Pharmacy</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8505150990" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8505150990"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Publix Pharmacy', '8505150990')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Walgreens Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509364302" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509364302"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Walgreens Navarre', '8509364302')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Walgreens Gulf Breeze</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509161955" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509161955"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Walgreens Gulf Breeze', '8509161955')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Walmart Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509393998" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509393998"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Walmart Navarre', '8509393998')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Walmart Gulf Breeze</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509340362" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509340362"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Walmart Gulf Breeze', '8509340362')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1033,8 +1159,9 @@
           <div class="card-detail">License, tags, registration</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8509831800"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8509831800"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://srctc.com" target="_blank" rel="noopener" aria-label="Tax Collector website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Santa Rosa Tax Collector / DMV', '8509831800')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -1042,13 +1169,19 @@
           <div class="card-name">Santa Rosa County Clerk</div>
           <div class="card-detail">Records &amp; courts</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509831824" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509831824"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Santa Rosa County Clerk', '8509831824')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Voter Registration</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509831900" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509831900"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Voter Registration', '8509831900')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
@@ -1061,13 +1194,19 @@
         <div class="card-info">
           <div class="card-name">Navarre Post Office</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509390381" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509390381"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Navarre Post Office', '8509390381')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze Post Office</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509320156" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509320156"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze Post Office', '8509320156')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1085,37 +1224,55 @@
         <div class="card-info">
           <div class="card-name">Santa Rosa Sheriff — Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509812250" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509812250"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Santa Rosa Sheriff — Navarre', '8509812250')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Santa Rosa Sheriff — Gulf Breeze</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509812270" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509812270"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Santa Rosa Sheriff — Gulf Breeze', '8509812270')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze Police</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509344050" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509344050"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze Police', '8509344050')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Okaloosa County Sheriff</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8506517410" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8506517410"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Okaloosa County Sheriff', '8506517410')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">US Coast Guard</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8504538282" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8504538282"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('US Coast Guard', '8504538282')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Florida Marine Patrol</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:18003425367" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:18003425367"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Florida Marine Patrol', '18003425367')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
 
@@ -1125,31 +1282,46 @@
         <div class="card-info">
           <div class="card-name">Holley by the Sea</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509365040" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509365040"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley by the Sea', '8509365040')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Holley-Navarre</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509395236" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509395236"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley-Navarre', '8509395236')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Navarre Beach</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509392448" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509392448"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Navarre Beach', '8509392448')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Breeze</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509345133" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509345133"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Breeze', '8509345133')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Midway</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509324771" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509324771"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Midway', '8509324771')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1164,25 +1336,37 @@
         <div class="card-info">
           <div class="card-name">Navarre Animal Hospital</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509391373" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509391373"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Navarre Animal Hospital', '8509391373')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Soundside Animal Hospital</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509396080" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509396080"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Soundside Animal Hospital', '8509396080')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Tiger Point Animal Hospital</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509347233" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509347233"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Tiger Point Animal Hospital', '8509347233')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Emerald Coast Animal Hospital</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8502435080" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8502435080"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Emerald Coast Animal Hospital', '8502435080')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1200,8 +1384,9 @@
           <div class="card-name">NAS Pensacola</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8504520111"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8504520111"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.cnic.navy.mil/Pensacola/" target="_blank" rel="noopener" aria-label="NAS Pensacola"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('NAS Pensacola', '8504520111')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -1209,8 +1394,9 @@
           <div class="card-name">Hurlburt Field</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8508846245"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8508846245"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.hurlburt.af.mil" target="_blank" rel="noopener" aria-label="Hurlburt Field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Hurlburt Field', '8508846245')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
       <div class="card-row">
@@ -1218,8 +1404,9 @@
           <div class="card-name">Eglin Air Force Base</div>
         </div>
         <div class="card-actions">
-          <a class="btn btn-call" href="tel:8508821113"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg>Call</a>
+          <a class="btn btn-call" href="tel:8508821113"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
           <a class="btn btn-web" href="https://www.eglin.af.mil" target="_blank" rel="noopener" aria-label="Eglin AFB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+          <button onclick="addContact('Eglin Air Force Base', '8508821113')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
         </div>
       </div>
     </div>
@@ -1236,32 +1423,47 @@
         <div class="card-info">
           <div class="card-name">Holley by the Sea Recreation</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509391693" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509391693"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Holley by the Sea Recreation', '8509391693')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Betty J Pullum Family YMCA</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509360049" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509360049"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Betty J Pullum Family YMCA', '8509360049')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Gulf Islands National Seashore</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509342600" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509342600"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Gulf Islands National Seashore', '8509342600')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Santa Rosa County Library</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509817323" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509817323"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Santa Rosa County Library', '8509817323')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
           <div class="card-name">Navarre Press</div>
           <div class="card-detail">Local newspaper</div>
         </div>
-        <a class="btn btn-call btn-icon-only" href="tel:8509398040" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 00-1.02.24l-2.2 2.2a15.07 15.07 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4a1 1 0 00-1-1H4a1 1 0 00-1 1c0 9.39 7.61 17 17 17a1 1 0 001-1v-3.5a1 1 0 00-1-1z"/></svg></a>
+        <div class="card-actions">
+          <a class="btn btn-call" href="tel:8509398040"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>Call</a>
+          <button onclick="addContact('Navarre Press', '8509398040')" class="btn btn-contact" title="Add to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="m22 11-3-3m0 0-3 3m3-3v6"></path></svg></button>
+        </div>
       </div>
       <div class="card-row">
         <div class="card-info">
@@ -1318,6 +1520,926 @@
     <p class="disclaimer">Phone numbers and websites compiled for the convenience of new residents. Please verify hours and service areas with each provider. Carol Brown Family Real Estate is not affiliated with these companies.</p>
   </div>
 </footer>
+
+<!-- Directory Modal -->
+<div id="directoryModal" class="directory-modal" onclick="closeDirectory(event)">
+  <div class="directory-content" onclick="event.stopPropagation()">
+    <div class="directory-header">
+      <h3>Phone Directory</h3>
+      <button class="directory-close" onclick="closeDirectory()">&times;</button>
+    </div>
+    <div class="directory-list">
+<div class="directory-section">
+        <h4>Utilities & Infrastructure</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Florida Power & Light (FPL)</span>
+            <span class="directory-number">(800) 225-5797</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8002255797" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Florida Power & Light (FPL)', '8002255797')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley Navarre Water System</span>
+            <span class="directory-number">(850) 939-2427</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509392427" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley Navarre Water System', '8509392427')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre Beach Utilities</span>
+            <span class="directory-number">(850) 981-8888</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509818888" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre Beach Utilities', '8509818888')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Midway Water System</span>
+            <span class="directory-number">(850) 932-5188</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509325188" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Midway Water System', '8509325188')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Utilities</span>
+            <span class="directory-number">(850) 934-5110</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345110" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Utilities', '8509345110')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Okaloosa Gas District</span>
+            <span class="directory-number">(850) 729-4700</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8507294700" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Okaloosa Gas District', '8507294700')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Gas</span>
+            <span class="directory-number">(850) 934-5110</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345110" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Gas', '8509345110')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Republic Services</span>
+            <span class="directory-number">(800) 774-7425</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:18007747425" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Republic Services', '18007747425')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Waste Pro</span>
+            <span class="directory-number">(850) 365-1900</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8503651900" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Waste Pro', '8503651900')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Adams Sanitation</span>
+            <span class="directory-number">(850) 710-3322</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8507103322" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Adams Sanitation', '8507103322')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Garbage</span>
+            <span class="directory-number">(850) 934-5110</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345110" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Garbage', '8509345110')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Mediacom</span>
+            <span class="directory-number">(855) 314-4947</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:18553144947" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Mediacom', '18553144947')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">AT&T & DIRECTV</span>
+            <span class="directory-number">(800) 288-2020</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:18002882020" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('AT&T & DIRECTV', '18002882020')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Cox Communications</span>
+            <span class="directory-number">(855) 313-7685</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:18553137685" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Cox Communications', '18553137685')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Schools & Education</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa County Schools</span>
+            <span class="directory-number">(850) 936-6000</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366000" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa County Schools', '8509366000')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley Navarre Primary</span>
+            <span class="directory-number">(850) 936-6130</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366130" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley Navarre Primary', '8509366130')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">West Navarre Intermediate</span>
+            <span class="directory-number">(850) 936-6060</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366060" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('West Navarre Intermediate', '8509366060')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley Navarre Intermediate</span>
+            <span class="directory-number">(850) 936-6020</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366020" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley Navarre Intermediate', '8509366020')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley Navarre Middle</span>
+            <span class="directory-number">(850) 936-6040</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366040" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley Navarre Middle', '8509366040')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre High School</span>
+            <span class="directory-number">(850) 936-6080</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509366080" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre High School', '8509366080')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Elementary</span>
+            <span class="directory-number">(850) 934-5185</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345185" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Elementary', '8509345185')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Oriole Beach Elementary</span>
+            <span class="directory-number">(850) 934-5160</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345160" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Oriole Beach Elementary', '8509345160')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Woodlawn Beach Middle</span>
+            <span class="directory-number">(850) 934-4010</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509344010" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Woodlawn Beach Middle', '8509344010')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Middle</span>
+            <span class="directory-number">(850) 934-4080</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509344080" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Middle', '8509344080')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze High School</span>
+            <span class="directory-number">(850) 916-4100</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509164100" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze High School', '8509164100')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">East Bay K-8</span>
+            <span class="directory-number">(850) 750-0134</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8507500134" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('East Bay K-8', '8507500134')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Healthcare & Medical</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Baptist Medical Park</span>
+            <span class="directory-number">(850) 939-4888</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509394888" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Baptist Medical Park', '8509394888')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Hospital</span>
+            <span class="directory-number">(850) 934-2000</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509342000" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Hospital', '8509342000')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Sacred Heart Hospital</span>
+            <span class="directory-number">(850) 416-7000</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8504167000" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Sacred Heart Hospital', '8504167000')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">SRMG Navarre Walk-In</span>
+            <span class="directory-number">(850) 981-4015</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509814015" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('SRMG Navarre Walk-In', '8509814015')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Ascension Sacred Heart Walk-In</span>
+            <span class="directory-number">(850) 416-2337</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8504162337" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Ascension Sacred Heart Walk-In', '8504162337')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">White-Wilson Immediate Care</span>
+            <span class="directory-number">(850) 396-0424</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8503960424" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('White-Wilson Immediate Care', '8503960424')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">CVS Navarre</span>
+            <span class="directory-number">(850) 936-1445</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509361445" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('CVS Navarre', '8509361445')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">CVS Gulf Breeze</span>
+            <span class="directory-number">(850) 932-3581</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509323581" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('CVS Gulf Breeze', '8509323581')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Publix Pharmacy</span>
+            <span class="directory-number">(850) 515-0990</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8505150990" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Publix Pharmacy', '8505150990')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Walgreens Navarre</span>
+            <span class="directory-number">(850) 936-4302</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509364302" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Walgreens Navarre', '8509364302')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Walgreens Gulf Breeze</span>
+            <span class="directory-number">(850) 916-1955</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509161955" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Walgreens Gulf Breeze', '8509161955')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Walmart Navarre</span>
+            <span class="directory-number">(850) 939-3998</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509393998" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Walmart Navarre', '8509393998')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Walmart Gulf Breeze</span>
+            <span class="directory-number">(850) 934-0362</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509340362" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Walmart Gulf Breeze', '8509340362')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre Animal Hospital</span>
+            <span class="directory-number">(850) 939-1373</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509391373" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre Animal Hospital', '8509391373')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Soundside Animal Hospital</span>
+            <span class="directory-number">(850) 939-6080</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509396080" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Soundside Animal Hospital', '8509396080')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Tiger Point Animal Hospital</span>
+            <span class="directory-number">(850) 934-7233</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509347233" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Tiger Point Animal Hospital', '8509347233')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Emerald Coast Animal Hospital</span>
+            <span class="directory-number">(850) 243-5080</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8502435080" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Emerald Coast Animal Hospital', '8502435080')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Emergency & Safety</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa Sheriff — Navarre</span>
+            <span class="directory-number">(850) 981-2250</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509812250" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa Sheriff — Navarre', '8509812250')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa Sheriff — Gulf Breeze</span>
+            <span class="directory-number">(850) 981-2270</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509812270" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa Sheriff — Gulf Breeze', '8509812270')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Police</span>
+            <span class="directory-number">(850) 934-4050</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509344050" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Police', '8509344050')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Okaloosa County Sheriff</span>
+            <span class="directory-number">(850) 651-7410</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8506517410" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Okaloosa County Sheriff', '8506517410')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">US Coast Guard</span>
+            <span class="directory-number">(850) 453-8282</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8504538282" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('US Coast Guard', '8504538282')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Florida Marine Patrol</span>
+            <span class="directory-number">(800) 342-5367</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:18003425367" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Florida Marine Patrol', '18003425367')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Fire & Rescue</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley by the Sea</span>
+            <span class="directory-number">(850) 936-5040</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509365040" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley by the Sea', '8509365040')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley-Navarre</span>
+            <span class="directory-number">(850) 939-5236</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509395236" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley-Navarre', '8509395236')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre Beach</span>
+            <span class="directory-number">(850) 939-2448</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509392448" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre Beach', '8509392448')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze</span>
+            <span class="directory-number">(850) 934-5133</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509345133" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze', '8509345133')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Midway</span>
+            <span class="directory-number">(850) 932-4771</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509324771" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Midway', '8509324771')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Holley by the Sea Recreation</span>
+            <span class="directory-number">(850) 939-1693</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509391693" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Holley by the Sea Recreation', '8509391693')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Military Bases</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">NAS Pensacola</span>
+            <span class="directory-number">(850) 452-0111</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8504520111" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('NAS Pensacola', '8504520111')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Hurlburt Field</span>
+            <span class="directory-number">(850) 884-6245</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8508846245" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Hurlburt Field', '8508846245')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Eglin Air Force Base</span>
+            <span class="directory-number">(850) 882-1113</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8508821113" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Eglin Air Force Base', '8508821113')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Government & Services</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa Tax Collector / DMV</span>
+            <span class="directory-number">(850) 983-1800</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509831800" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa Tax Collector / DMV', '8509831800')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa County Clerk</span>
+            <span class="directory-number">(850) 983-1824</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509831824" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa County Clerk', '8509831824')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Voter Registration</span>
+            <span class="directory-number">(850) 983-1900</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509831900" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Voter Registration', '8509831900')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre Post Office</span>
+            <span class="directory-number">(850) 939-0381</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509390381" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre Post Office', '8509390381')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Breeze Post Office</span>
+            <span class="directory-number">(850) 932-0156</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509320156" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Breeze Post Office', '8509320156')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Santa Rosa County Library</span>
+            <span class="directory-number">(850) 981-7323</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509817323" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Santa Rosa County Library', '8509817323')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="directory-section">
+        <h4>Other Services</h4>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Betty J Pullum Family YMCA</span>
+            <span class="directory-number">(850) 936-0049</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509360049" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Betty J Pullum Family YMCA', '8509360049')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Gulf Islands National Seashore</span>
+            <span class="directory-number">(850) 934-2600</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509342600" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Gulf Islands National Seashore', '8509342600')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+        <div class="directory-item">
+          <div class="directory-info">
+            <span class="directory-name">Navarre Press</span>
+            <span class="directory-number">(850) 939-8040</span>
+          </div>
+          <div class="directory-actions">
+            <a href="tel:8509398040" class="directory-btn directory-call">Call</a>
+            <button onclick="addContact('Navarre Press', '8509398040')" class="directory-btn directory-add">Add Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.directory-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.directory-modal.show {
+  display: flex;
+  animation: directoryFadeIn 0.3s ease;
+}
+
+.directory-content {
+  background: white;
+  width: 100%;
+  max-height: 70vh;
+  border-radius: 20px 20px 0 0;
+  animation: directorySlideUp 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 -4px 24px rgba(10, 61, 98, 0.15);
+}
+
+.directory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.directory-header h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin: 0;
+}
+
+.directory-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.directory-list {
+  max-height: calc(70vh - 80px);
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.directory-section {
+  margin-bottom: 24px;
+}
+
+.directory-section h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin: 0 0 12px 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.directory-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(10, 61, 98, 0.06);
+  gap: 16px;
+}
+
+.directory-info {
+  flex: 1;
+}
+
+.directory-name {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.directory-number {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: 'SF Mono', 'Monaco', monospace;
+}
+
+.directory-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.directory-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.directory-call {
+  background: var(--navy);
+  color: white;
+}
+
+.directory-call:hover {
+  background: var(--navy-deep);
+}
+
+.directory-add {
+  background: var(--sand);
+  color: var(--navy);
+  border: 1px solid var(--line);
+}
+
+.directory-add:hover {
+  background: var(--sand-warm);
+  border-color: var(--gold);
+}
+
+@keyframes directoryFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes directorySlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .directory-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .directory-btn {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+</style>
+
+<script>
+function openDirectory() {
+  document.getElementById('directoryModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDirectory(event) {
+  if (!event || event.target === document.getElementById('directoryModal') || event.target.classList.contains('directory-close')) {
+    document.getElementById('directoryModal').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+
+function addContact(name, phone) {
+  // Format phone number for vCard
+  const formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, '+1-$1-$2-$3');
+  
+  // Create vCard content
+  const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL:${formattedPhone}
+CATEGORIES:Navarre Services
+END:VCARD`;
+  
+  // Create downloadable link
+  const blob = new Blob([vCard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${name.replace(/[^a-zA-Z0-9]/g, '_')}.vcf`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeDirectory();
+  }
+});
+</script>
 
 </body>
 </html>
