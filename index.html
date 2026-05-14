@@ -638,7 +638,7 @@
       <span class="section-num">01</span>
       <h2>Utilities</h2>
     </div>
-    <p class="section-desc">Set these up first — ideally a week before move-in. Power and water can take 1–2 business days to activate. <strong>Tip:</strong> Use the "📇" button to save contacts directly to your phone.</p>
+    <p class="section-desc">Set these up first — ideally a week before move-in. Power and water can take 1–2 business days to activate.</p>
 
     <div class="subsection-title">Electricity</div>
     <div class="card">
@@ -2417,7 +2417,8 @@ function addContact(name, phone) {
   const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
-N:${name};;;;
+N:;${name};;;
+ORG:${name}
 TEL:${formattedPhone}
 CATEGORIES:Navarre Services
 END:VCARD`;
